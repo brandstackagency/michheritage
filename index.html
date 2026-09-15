@@ -1,94 +1,11 @@
-<!doctype html>
-<html lang="en">
-  <head> 
-</script>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mich Heritage | Bespoke Asoebi & Custom Pieces | By Appointment Only</title>
-    <meta name="description" content="Mich Heritage crafts bespoke asoebi, custom bridal ensembles, and exclusive occasion pieces for the Nigerian woman who loves to look snatched, timeless, and elegant. By appointment only. Lagos & worldwide." />
-    <meta name="keywords" content="bespoke asoebi, custom pieces, Nigerian fashion, bridal asoebi, Mich Heritage, owambe styling" />
-    <link rel="canonical" href="https://michheritage.com/" />
-    <meta name="geo.position" content="6.5244;3.3792" />
-    <meta name="geo.region" content="NG-LA" />
-    <meta name="geo.placename" content="Lagos, Nigeria" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Mich Heritage | Bespoke Asoebi & Custom Pieces | By Appointment Only" />
-    <meta property="og:description" content="Mich Heritage crafts bespoke asoebi, custom bridal ensembles, and exclusive occasion pieces. By appointment only." />
-    <meta property="og:image" content="https://readdy.ai/api/search-image?query=Elegant%20fashion%20editorial%20with%20stylish%20woman%20in%20flowing%20beige%20gown%2C%20warm%20neutral%20studio%20backdrop%2C%20soft%20golden%20lighting%2C%20minimal%20luxury%20aesthetic&width=1200&height=630&seq=og-image-01&orientation=landscape" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css">
+    <title>Content Manager Dashboard</title>
+    <!-- Loads Sveltia CMS app framework -->
+    <script src="https://unpkg.com" type="module"></script>
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-<!-- Hidden Netlify Form Mapping -->
-<form name="contact" data-netlify="true" hidden>
-  <input type="text" name="fullName" />
-  <input type="email" name="email" />
-  <input type="text" name="phoneWhatsApp" />
-  <input type="text" name="country" />
-  <select name="service">
-    <option value="default">Select a service</option>
-  </select>
-  <input type="date" name="preferredDate" />
-  <textarea name="tellUsAboutYourVision"></textarea>
-</form>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
-<!-- Force Netlify to Override Readdy AI Form Actions -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Find every form on the page
-    const forms = document.querySelectorAll("form");
-    
-    forms.forEach(form => {
-      // 1. Force Netlify configuration attributes directly onto the HTML
-      form.setAttribute("data-netlify", "true");
-      if (!form.getAttribute("name")) {
-        form.setAttribute("name", "contact");
-      }
-      
-      // 2. Clear Readdy's inline submission commands
-      form.removeAttribute("action");
-      form.onsubmit = null;
-
-      // 3. Hijack the submit button event away from Readdy's scripts
-      form.addEventListener("submit", function(e) {
-        e.preventDefault(); // Blocks Readdy AI from sending the data
-
-        const formData = new FormData(form);
-        
-        // Append Netlify's mandatory identifier token
-        formData.append("form-name", form.getAttribute("name"));
-
-        // Force feed the data straight to Netlify's local endpoint
-        fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formData).toString()
-        })
-        .then(() => {
-          alert("Thank you! Your submission has been received.");
-          form.reset();
-        })
-        .catch(error => alert("Submission error: " + error));
-      }, true); // The "true" parameter tells the browser to process our script first
-    });
-  });
-</script>
-  </body>
+  <body></body>
 </html>
