@@ -49,5 +49,46 @@
     });
   }
 </script>
+<!-- Force Netlify to Override Readdy AI Form Actions -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Find every form on the page
+    const forms = document.querySelectorAll("form");
+    
+    forms.forEach(form => {
+      // 1. Force Netlify configuration attributes directly onto the HTML
+      form.setAttribute("data-netlify", "true");
+      if (!form.getAttribute("name")) {
+        form.setAttribute("name", "contact");
+      }
+      
+      // 2. Clear Readdy's inline submission commands
+      form.removeAttribute("action");
+      form.onsubmit = null;
+
+      // 3. Hijack the submit button event away from Readdy's scripts
+      form.addEventListener("submit", function(e) {
+        e.preventDefault(); // Blocks Readdy AI from sending the data
+
+        const formData = new FormData(form);
+        
+        // Append Netlify's mandatory identifier token
+        formData.append("form-name", form.getAttribute("name"));
+
+        // Force feed the data straight to Netlify's local endpoint
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+          alert("Thank you! Your submission has been received.");
+          form.reset();
+        })
+        .catch(error => alert("Submission error: " + error));
+      }, true); // The "true" parameter tells the browser to process our script first
+    });
+  });
+</script>
   </body>
 </html>
