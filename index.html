@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+  <head> 
+</script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,5 +38,16 @@
   <input type="date" name="preferredDate" />
   <textarea name="tellUsAboutYourVision"></textarea>
 </form>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
   </body>
 </html>
