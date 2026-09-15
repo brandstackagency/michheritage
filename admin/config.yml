@@ -3,65 +3,16 @@ backend:
   repo: brandstackagency/michheritage
   branch: main
 
-# This enables the secure Netlify login widget
-local_backend: false
-
 media_folder: "public/images"
 public_folder: "/images"
 
 collections:
-  - name: "website_content"
-    label: "Website Pages"
-    files:
-      - file: "index.html"
-        label: "Homepage Content"
-        name: "homepage"
-        fields:
-          # Hero
-          - label: "--- HERO SECTION ---"
-            name: "hero_divider"
-            widget: "hidden"
-          - { label: "Main Headline", name: "hero_headline", widget: "string" }
-          - { label: "Subheading", name: "hero_subheading", widget: "text" }
-          - { label: "Background Image", name: "hero_image", widget: "image" }
-
-          # About
-          - label: "--- ABOUT SECTION ---"
-            name: "about_divider"
-            widget: "hidden"
-          - { label: "About Title", name: "about_title", widget: "string" }
-          - { label: "About Content", name: "about_text", widget: "text" }
-
-          # Services
-          - label: "--- SERVICES ---"
-            name: "services_divider"
-            widget: "hidden"
-          - label: "Services Provided"
-            name: "services_list"
-            widget: "list"
-            fields:
-              - { label: "Service Name", name: "service_name", widget: "string" }
-              - { label: "Description", name: "service_desc", widget: "text" }
-
-          # Gallery
-          - label: "--- GALLERY ---"
-            name: "gallery_divider"
-            widget: "hidden"
-          - label: "Images"
-            name: "gallery_photos"
-            widget: "list"
-            fields:
-              - { label: "Upload Photo", name: "photo", widget: "image" }
-
-          # Contact Info
-          - label: "--- CONTACT FOOTNOTE ---"
-            name: "contact_divider"
-            widget: "hidden"
-          - { label: "Form Headline", name: "contact_title", widget: "string" }
-
-          # Footer
-          - label: "--- FOOTER ---"
-            name: "footer_divider"
-            widget: "hidden"
-          - { label: "Copyright Holder", name: "footer_brand", widget: "string" }
-          - { label: "Contact Phone / WhatsApp", name: "footer_phone", widget: "string" }
+  - name: "blog"
+    label: "Company Articles / Updates"
+    folder: "content/blog"
+    create: true
+    fields:
+      - { label: "Article Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Cover Image", name: "image", widget: "image" }
+      - { label: "Body Content", name: "body", widget: "markdown" }
